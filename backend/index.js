@@ -9,7 +9,7 @@ dotenv.config();
 const {
   RESEND_API_KEY,
   ADMIN_EMAIL,
-  FROM_EMAIL = 'contact@illyriancycling.cc',
+  FROM_EMAIL,
   SITE_NAME = 'Illyrian Cycling',
   PORT = 3000,
 } = process.env;
