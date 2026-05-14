@@ -11,7 +11,7 @@ const {
   ADMIN_EMAIL,
   FROM_EMAIL,
   SITE_NAME = 'Illyrian Cycling',
-  PORT = 3000,
+  PORT = 1000,
 } = process.env;
 
 if (!RESEND_API_KEY) {
