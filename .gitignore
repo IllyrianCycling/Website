@@ -1,0 +1,10 @@
+# Ignore backend environment and dependencies
+backend/node_modules/
+backend/.env
+
+# Ignore frontend dependencies if ever added
+frontend/node_modules/
+
+# System files
+.DS_Store
+npm-debug.log*

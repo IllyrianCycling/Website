@@ -1,0 +1,21 @@
+services:
+  - type: web_service
+    name: illyrian-cycling-backend
+    env: node
+    branch: main
+    plan: free
+    root: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: RESEND_API_KEY
+      - key: ADMIN_EMAIL
+      - key: FROM_EMAIL
+      - key: SITE_NAME
+
+  - type: static_site
+    name: illyrian-cycling-frontend
+    branch: main
+    plan: free
+    root: frontend
+    publishPath: .
