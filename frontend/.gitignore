@@ -1,13 +1,6 @@
 # Dependency directories
 node_modules/
 
-# Ignore backend environment and dependencies
-backend/node_modules/
-backend/.env
-
-# Ignore frontend dependencies if ever added
-frontend/node_modules/
-
 # Production build outputs
 dist/
 build/
