@@ -368,6 +368,38 @@ a {
   justify-self: center;
 }
 
+/* Tablet + mobile */
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-row:nth-child(3),
+  .form-row:nth-child(4),
+  .contact-form button {
+    grid-column: auto;
+  }
+
+  .contact-form .cta {
+    margin-top: 0.5rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .contact-form {
+    gap: 1rem;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+
 /* FOOTER */
 footer {
   position: relative;
