@@ -99,13 +99,31 @@ if (contactForm) {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      let result = null;
+      const contentType = response.headers.get('content-type') || '';
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Unable to submit form');
+      if (contentType.includes('application/json')) {
+        try {
+          result = await response.json();
+        } catch (err) {
+          result = null;
+        }
+      } else {
+        // Attempt to read text for better error messages, but don't assume JSON
+        try {
+          const text = await response.text();
+          result = text ? { message: text } : null;
+        } catch (err) {
+          result = null;
+        }
       }
 
-      contactStatus.textContent = 'Thanks — we have your request and a confirmation email is on its way.';
+      if (!response.ok) {
+        const errMsg = (result && (result.error || result.message)) ? (result.error || result.message) : `Request failed with status ${response.status}`;
+        throw new Error(errMsg);
+      }
+
+      contactStatus.textContent = (result && result.message) ? result.message : 'Thanks — we have your request and a confirmation email is on its way.';
       contactForm.reset();
     } catch (error) {
       contactStatus.textContent = 'Sorry, we could not send your message. Please try again later.';
