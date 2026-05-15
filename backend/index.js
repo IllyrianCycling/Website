@@ -11,7 +11,7 @@ const {
   ADMIN_EMAIL,
   FROM_EMAIL,
   SITE_NAME = 'Illyrian Cycling',
-  PORT = 1000,
+  PORT,
 } = process.env;
 
 if (!RESEND_API_KEY) {
@@ -29,7 +29,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend')));
 
 function sanitize(value) {
   return String(value || '').trim();
@@ -102,8 +101,12 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+app.get('/', (req, res) => {
+  res.json({ message: 'API server is running.' });
+});
+
+app.use((req, res) => {
+  res.status(404).json({ error: 'Not found.' });
 });
 
 app.listen(PORT, () => {

@@ -90,7 +90,7 @@ if (contactForm) {
     contactStatus.classList.remove('error');
 
     try {
-      const apiUrl = contactForm.dataset.apiUrl || '/api/contact';
+      const apiUrl = contactForm.dataset.apiUrl || 'https://backend-zc92.onrender.com/api/contact';
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
