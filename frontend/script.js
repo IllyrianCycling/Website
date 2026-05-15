@@ -99,10 +99,22 @@ if (contactForm) {
         body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
+      let result = null;
+      const contentType = response.headers.get('content-type') || '';
+
+      if (contentType.includes('application/json') && response.ok) {
+        try {
+          result = await response.json();
+        } catch (err) {
+          result = { message: 'Email sent successfully.' };
+        }
+      }
 
       if (!response.ok) {
-        throw new Error(result.error || 'Unable to submit form');
+        if (result && result.error) {
+          throw new Error(result.error);
+        }
+        throw new Error(`Request failed with status ${response.status}`);
       }
 
       contactStatus.textContent = 'Thanks — we have your request and a confirmation email is on its way.';
