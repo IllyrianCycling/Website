@@ -26,9 +26,11 @@ if (!ADMIN_EMAIL) {
 
 const resend = new Resend(RESEND_API_KEY);
 const app = express();
+const FRONTEND_DIR = path.join(__dirname, '../frontend');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(FRONTEND_DIR));
 
 function sanitize(value) {
   return String(value || '').trim();
@@ -101,14 +103,14 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  res.json({ message: 'API server is running.' });
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ error: 'API endpoint not found.' });
+  }
+
+  res.sendFile(path.join(FRONTEND_DIR, 'index.html'));
 });
 
-app.use((req, res) => {
-  res.status(404).json({ error: 'Not found.' });
-});
-
-app.listen(PORT, () => {
-  console.log(`Back-end service listening on http://localhost:${PORT}`);
+app.listen(PORT || 3000, () => {
+  console.log(`Back-end service listening on http://localhost:${PORT || 3000}`);
 });

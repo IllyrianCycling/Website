@@ -70,27 +70,43 @@ if (routeCards.length) {
 
   routeCards.forEach(card => observer.observe(card));
 }
-
+/// Backend API interaction for contact form
 const contactForm = document.querySelector('.contact-form');
 const contactStatus = document.querySelector('.contact-status');
 
+function updateStatus(message, isError = false) {
+  if (!contactStatus) return;
+  contactStatus.textContent = message;
+  contactStatus.classList.toggle('error', isError);
+}
+
+async function parseJsonResponse(response) {
+  const text = await response.text();
+  if (!text) return null;
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return null;
+  }
+}
+// Email content builders
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+// Sanitize input values
     const formData = new FormData(contactForm);
     const payload = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      level: formData.get('level'),
-      message: formData.get('message'),
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      level: formData.get('level')?.toString() || '',
+      message: formData.get('message')?.toString() || '',
     };
 
-    contactStatus.textContent = 'Sending...';
-    contactStatus.classList.remove('error');
+    updateStatus('Sending...');
 
     try {
-      const apiUrl = contactForm.dataset.apiUrl || 'https://backend-zc92.onrender.com/api/contact';
+      const apiUrl = contactForm.dataset.apiUrl || contactForm.action || '/api/contact';
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -99,30 +115,18 @@ if (contactForm) {
         body: JSON.stringify(payload),
       });
 
-      let result = null;
-      const contentType = response.headers.get('content-type') || '';
-
-      if (contentType.includes('application/json') && response.ok) {
-        try {
-          result = await response.json();
-        } catch (err) {
-          result = { message: 'Email sent successfully.' };
-        }
-      }
+      const result = await parseJsonResponse(response);
 
       if (!response.ok) {
-        if (result && result.error) {
-          throw new Error(result.error);
-        }
-        throw new Error(`Request failed with status ${response.status}`);
+        const message = result?.error || result?.message || `Request failed with status ${response.status}`;
+        throw new Error(message);
       }
 
-      contactStatus.textContent = 'Thanks — we have your request and a confirmation email is on its way.';
+      updateStatus('Thanks — we have your request and a confirmation email is on its way.');
       contactForm.reset();
     } catch (error) {
-      contactStatus.textContent = 'Sorry, we could not send your message. Please try again later.';
-      contactStatus.classList.add('error');
       console.error('Contact form submit failed:', error);
+      updateStatus('Sorry, we could not send your message. Please try again later.', true);
     }
   });
 }
