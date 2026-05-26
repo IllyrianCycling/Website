@@ -1,21 +1,20 @@
-services:
-  - type: web_service
-    name: illyrian-cycling-backend
-    env: node
-    branch: main
-    plan: free
-    root: backend
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
-      - key: RESEND_API_KEY
-      - key: ADMIN_EMAIL
-      - key: FROM_EMAIL
-      - key: SITE_NAME
+name: Uptime Checker
 
-  - type: static_site
-    name: illyrian-cycling-frontend
-    branch: main
-    plan: free
-    root: frontend
-    publishPath: .
+on:
+  schedule:
+    - cron: '*/13 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check website uptime
+        run: |
+          URL="https://illyriancycling.cc/"
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "$URL")
+          echo "HTTP status: $STATUS"
+          if [ "$STATUS" -ne 200 ]; then
+            echo "Website is down or returned a non-200 status"
+            exit 1
+          fi
