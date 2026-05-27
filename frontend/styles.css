@@ -170,24 +170,28 @@ a {
   color: #d4784f;
 }
 
-.hero-meta > span,
-.hero-meta-last {
+.tw-line {
+  display: inline;
   white-space: nowrap;
-}
-
-.hero-meta-last {
-  display: inline-flex;
-  align-items: center;
-}
-
-.cursor {
-  color: #ffffff;
-  animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+.cursor {
+  color: #ffffff;
+  opacity: 0;
+}
+
+.cursor.is-active {
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+}
+
+.cursor.is-done {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -198,8 +202,16 @@ a {
     font-size: 0.72rem;
     letter-spacing: 0.06em;
   }
+}
 
-
+@media (min-width: 769px) {
+  .tw-line:not(:last-child) .cursor {
+    display: none;
+  }
+  .tw-line:last-child .cursor {
+    opacity: 1;
+    animation: blink 1s step-end infinite;
+  }
 }
 
 .hero-cta-group {
