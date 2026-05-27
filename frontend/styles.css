@@ -169,6 +169,10 @@ a {
   color: #d4784f;
 }
 
+.hero-meta > span {
+  white-space: nowrap;
+}
+
 .cursor {
   color: #ffffff;
   animation: blink 1s step-end infinite;
