@@ -21,9 +21,9 @@ const twTagline = document.getElementById('tw-tagline');
 
 if (twLocation && twCoords && twTagline) {
   const twSequence = [
-    { el: twLocation, text: '[ LOCATION ]\u00A0\u00A0' },
+    { el: twLocation, text: '[ LOCATION ]' },
     { el: twCoords, text: '42° 23′ 56.76″ N, 18° 49′ 6.24″ E' },
-    { el: twTagline, text: '\u00A0\u00A0// UNMAPPED' }
+    { el: twTagline, text: 'UNMAPPED' }
   ];
 
   let cancelled = false;

@@ -169,8 +169,14 @@ a {
   color: #d4784f;
 }
 
-.hero-meta > span {
+.hero-meta > span,
+.hero-meta-last {
   white-space: nowrap;
+}
+
+.hero-meta-last {
+  display: inline-flex;
+  align-items: center;
 }
 
 .cursor {
