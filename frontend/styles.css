@@ -983,6 +983,7 @@ h2 {
   }
 
   .nav {
+    position: static;
     height: 80px;
     padding: 0 1.25rem;
     backdrop-filter: none;
