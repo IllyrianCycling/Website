@@ -154,6 +154,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5em;
   margin-top: 2rem;
   margin-bottom: 2rem;
   height: 1.5em;
@@ -196,6 +197,10 @@ a {
     gap: 0.2rem;
     font-size: 0.72rem;
     letter-spacing: 0.06em;
+  }
+
+  #tw-sep {
+    display: none;
   }
 }
 

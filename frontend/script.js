@@ -17,13 +17,15 @@ if (scrollProgress) {
 
 const twLocation = document.getElementById('tw-location');
 const twCoords = document.getElementById('tw-coords');
+const twSep = document.getElementById('tw-sep');
 const twTagline = document.getElementById('tw-tagline');
 
-if (twLocation && twCoords && twTagline) {
+if (twLocation && twCoords && twSep && twTagline) {
   const twSequence = [
     { el: twLocation, text: '[ LOCATION ]' },
     { el: twCoords, text: '42° 23′ 56.76″ N, 18° 49′ 6.24″ E' },
-    { el: twTagline, text: 'UNMAPPED' }
+    { el: twSep, text: '//' },
+    { el: twTagline, text: 'UNMAPPED' },
   ];
 
   let cancelled = false;
