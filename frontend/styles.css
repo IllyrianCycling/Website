@@ -190,10 +190,6 @@ a {
   animation: blink 1s step-end infinite;
 }
 
-.cursor.is-done {
-  opacity: 1;
-}
-
 @media (max-width: 768px) {
   .hero-meta {
     flex-direction: column;

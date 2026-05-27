@@ -34,13 +34,12 @@ if (twLocation && twCoords && twTagline) {
     let partIndex = 0;
     let charIndex = 0;
 
-    function setCursorState(el, state) {
+    function setCursorActive(el, active) {
       const line = el.parentElement;
       if (!line) return;
       const cursor = line.querySelector('.cursor');
       if (!cursor) return;
-      cursor.classList.remove('is-active', 'is-done');
-      if (state) cursor.classList.add(state);
+      cursor.classList.toggle('is-active', active);
     }
 
     function typeNext() {
@@ -48,8 +47,8 @@ if (twLocation && twCoords && twTagline) {
       const part = twSequence[partIndex];
       if (charIndex < part.text.length) {
         if (charIndex === 0) {
-          if (partIndex > 0) setCursorState(twSequence[partIndex - 1].el, 'is-done');
-          setCursorState(part.el, 'is-active');
+          if (partIndex > 0) setCursorActive(twSequence[partIndex - 1].el, false);
+          setCursorActive(part.el, true);
         }
         part.el.textContent += part.text.charAt(charIndex);
         charIndex++;
@@ -60,7 +59,7 @@ if (twLocation && twCoords && twTagline) {
         setTimeout(typeNext, 120);
       }
     }
-    if (!isDesktop) setCursorState(twSequence[0].el, 'is-active');
+    if (!isDesktop) setCursorActive(twSequence[0].el, true);
     typeNext();
   }
 
