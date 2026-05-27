@@ -181,7 +181,11 @@ a {
 
 @media (max-width: 768px) {
   .hero-meta {
-    font-size: 0.8rem;
+    flex-direction: column;
+    height: auto;
+    gap: 0.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
   }
 }
 
