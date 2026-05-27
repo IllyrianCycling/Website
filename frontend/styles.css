@@ -59,9 +59,6 @@ a {
   justify-content: flex-start;
   height: 110px;
   padding: 0 60px;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
 .nav-brand {
