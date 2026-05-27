@@ -208,6 +208,10 @@ a {
     opacity: 1;
     animation: blink 1s step-end infinite;
   }
+
+  #tw-coords {
+    margin: 0 0.3em;
+  }
 }
 
 .hero-cta-group {
