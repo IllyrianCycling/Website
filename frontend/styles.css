@@ -677,9 +677,10 @@ h2 {
   26%, 100% { opacity: 1; }
 }
 
-.icon-coast {
-  width: 46px !important;
-  height: 46px !important;
+.why-grid .icon-coast,
+.athlete-grid .icon-coast {
+  width: 46px;
+  height: 46px;
   position: relative;
   top: -5px;
 }
