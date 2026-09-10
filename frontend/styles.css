@@ -494,6 +494,43 @@ footer {
   border-radius: 3px;
 }
 
+/* MUSIC TOGGLE */
+.music-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--card-border-strong);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.music-toggle:hover {
+  border-color: rgba(212, 120, 79, 0.5);
+  box-shadow: 0 8px 32px rgba(212, 120, 79, 0.15);
+}
+
+.music-toggle.is-on {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 16px rgba(212, 120, 79, 0.35);
+}
+
 /* MOBILE */
 @media (max-width: 480px) {
   .contact-form {

@@ -145,3 +145,32 @@ if (contactForm) {
     }
   });
 }
+
+// Music toggle
+const musicToggle = document.getElementById('music-toggle');
+const musicUrl = 'https://github.com/IllyrianCycling/website/releases/download/audio-v1/Supersonic.Shadows.mp3';
+
+if (musicToggle) {
+  let track = null;
+
+  musicToggle.addEventListener('click', () => {
+    if (!track) {
+      track = new Audio(musicUrl);
+      track.loop = true;
+      track.preload = 'none';
+    }
+
+    if (track.paused) {
+      track.play().then(() => {
+        musicToggle.setAttribute('aria-pressed', 'true');
+        musicToggle.classList.add('is-on');
+      }).catch((err) => {
+        console.error('Playback failed:', err);
+      });
+    } else {
+      track.pause();
+      musicToggle.setAttribute('aria-pressed', 'false');
+      musicToggle.classList.remove('is-on');
+    }
+  });
+}
