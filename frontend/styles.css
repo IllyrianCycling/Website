@@ -249,12 +249,6 @@ a {
 }
 
 /* INFO STATS */
-.info {
-  position: relative;
-  padding: 5rem 2rem;
-  z-index: 2;
-}
-
 .info-grid {
   max-width: 960px;
   margin: 0 auto;
@@ -579,9 +573,6 @@ footer {
 }
 
 section.why,
-section.routes,
-section.athletes,
-section.experience,
 section.testimonials {
   position: relative;
   z-index: 2;
@@ -589,9 +580,6 @@ section.testimonials {
 }
 
 section.why { background: rgba(10, 10, 10, 0.85); }
-section.routes { background: rgba(17, 17, 17, 0.9); }
-section.athletes { background: rgba(10, 10, 10, 0.85); }
-section.experience { background: rgba(17, 17, 17, 0.9); }
 .testimonials h2 {
   margin-bottom: 1.75rem;
 }
@@ -1325,13 +1313,11 @@ html {
 }
 
 /* SECTION BACKGROUNDS (UNIFIED ORDER) */
-section.proposition { background: rgba(10, 10, 10, 0.85); }
 section.choose { background: rgba(17, 17, 17, 0.9); }
 section.guided { background: rgba(10, 10, 10, 0.85); }
 section.sg-formats { background: rgba(17, 17, 17, 0.9); }
 section.testimonials { background: rgba(17, 17, 17, 0.9); }
 
-section.proposition,
 section.choose,
 section.guided {
   position: relative;
@@ -1652,9 +1638,6 @@ section.guided {
   }
 
   section.why,
-  section.routes,
-  section.athletes,
-  section.experience,
   section.testimonials,
   section.sg-intro,
   section.distinction,
@@ -1665,7 +1648,6 @@ section.guided {
   section.journey,
   section.suitability,
   section.compare,
-  section.proposition,
   section.choose,
   section.guided {
     padding: 3.5rem 0;
