@@ -136,22 +136,6 @@ a {
   letter-spacing: 0.15em;
 }
 
-@media (max-width: 768px) {
-  .hero-eyebrow-main .word1,
-  .hero-eyebrow-main .word2 {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin: 0 0 0.5rem 0;
-  }
-  .hero-eyebrow-main .word1 {
-    font-size: 1.1em;
-  }
-  .hero-eyebrow-main .word2 {
-    font-size: 1.1em;
-  }
-}
-
 .hero-inner h1 {
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
