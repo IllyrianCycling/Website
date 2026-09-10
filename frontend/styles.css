@@ -597,8 +597,6 @@ section.why { background: rgba(10, 10, 10, 0.85); }
 section.routes { background: rgba(17, 17, 17, 0.9); }
 section.athletes { background: rgba(10, 10, 10, 0.85); }
 section.experience { background: rgba(17, 17, 17, 0.9); }
-section.testimonials { background: rgba(10, 10, 10, 0.85); }
-
 .testimonials h2 {
   margin-bottom: 1.75rem;
 }
