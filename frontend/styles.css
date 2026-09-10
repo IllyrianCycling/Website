@@ -526,6 +526,11 @@ footer {
     padding: 0 1.25rem;
   }
 
+  .hero-inner h1 .hi-line,
+  .hero-inner h1 .accent {
+    display: block;
+  }
+
   .info-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
