@@ -197,16 +197,6 @@ a {
   animation: blink 1s step-end infinite;
 }
 
-@media (max-width: 768px) {
-  .hero-meta {
-    flex-direction: column;
-    height: auto;
-    gap: 0.2rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-  }
-}
-
 @media (min-width: 769px) {
   .tw-line:not(:last-child) .cursor {
     display: none;
@@ -419,6 +409,14 @@ a {
 
 /* Tablet + mobile */
 @media (max-width: 768px) {
+  .hero-meta {
+    flex-direction: column;
+    height: auto;
+    gap: 0.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
   .contact-form {
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -432,20 +430,6 @@ a {
 
   .contact-form .cta {
     margin-top: 0.5rem;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .contact-form {
-    gap: 1rem;
-  }
-
-  .form-row input,
-  .form-row select,
-  .form-row textarea {
-    padding: 0.9rem;
-    font-size: 0.95rem;
   }
 }
 
@@ -518,6 +502,17 @@ footer {
 
 /* MOBILE */
 @media (max-width: 480px) {
+  .contact-form {
+    gap: 1rem;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
   .nav {
     padding: 1.5rem 1rem 0.75rem;
     height: 72px;
@@ -924,104 +919,6 @@ h2 {
   color: var(--accent);
 }
 
-/* RESPONSIVE FOR NEW SECTIONS */
-@media (max-width: 1024px) {
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .route-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-cta-group .cta {
-    transform: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .why-grid,
-  .route-grid,
-  .athlete-grid,
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .athlete-grid {
-    max-width: 100%;
-  }
-
-  .timeline {
-    padding-left: 2.5rem;
-  }
-
-  .timeline::before {
-    left: 10px;
-  }
-
-  .timeline > div::before {
-    left: -2rem;
-  }
-
-  .container {
-    padding: 0 1.5rem;
-  }
-
-  section.why,
-  section.routes,
-  section.athletes,
-  section.experience,
-  section.testimonials {
-    padding: 3.5rem 0;
-  }
-
-  .route-card {
-    padding: 1.5rem;
-  }
-
-  .cta {
-    padding: 0.85rem 1.75rem;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .info-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .hero-inner {
-    padding: 0 1.5rem;
-  }
-
-  .nav {
-    position: static;
-    height: 80px;
-    padding: 0 1.25rem;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .route-card {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .nav-brand {
-    font-size: 1.1rem;
-    letter-spacing: 0.14em;
-  }
-
-  .logo img {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-  footer {
-    gap: 0.5rem;
-  }
-}
-
 /* ============================================================ */
 /* SELF-GUIDED PERFORMANCE (PHASE 2) */
 /* ============================================================ */
@@ -1404,64 +1301,6 @@ section.compare { background: rgba(10, 10, 10, 0.85); }
   color: var(--text-primary);
 }
 
-/* ============================================================ */
-/* SELF-GUIDED RESPONSIVE */
-/* ============================================================ */
-@media (max-width: 1024px) {
-  .sg-format-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .deliverables-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .journey-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  section.sg-intro,
-  section.distinction,
-  section.sg-formats,
-  section.recovery,
-  section.progression,
-  section.deliverables,
-  section.journey,
-  section.suitability,
-  section.compare {
-    padding: 3.5rem 0;
-  }
-
-  .split-grid,
-  .sg-format-grid,
-  .recovery-grid,
-  .deliverables-grid,
-  .journey-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .compare-row {
-    grid-template-columns: 1fr;
-  }
-
-  .compare-row > div {
-    padding: 0.6rem 1.25rem;
-  }
-
-  .compare-row > div:first-child {
-    border-right: none;
-  }
-
-  .compare-row > div:nth-child(2) {
-    border-right: none;
-  }
-}
-
-
 .sg-home-cta {
   display: flex;
   justify-content: center;
@@ -1758,18 +1597,149 @@ section.guided {
   margin-top: 4rem;
 }
 
-/* UNIFIED RESPONSIVE */
+/* RESPONSIVE: 1024px and below (single shared query) */
 @media (max-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .route-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-cta-group .cta {
+    transform: none;
+  }
+
+  .sg-format-grid,
+  .deliverables-grid,
+  .journey-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .sg-components {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* RESPONSIVE: 768px and below (single shared query) */
 @media (max-width: 768px) {
+  .why-grid,
+  .route-grid,
+  .athlete-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .athlete-grid {
+    max-width: 100%;
+  }
+
+  .timeline {
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline > div::before {
+    left: -2rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  section.why,
+  section.routes,
+  section.athletes,
+  section.experience,
+  section.testimonials,
+  section.sg-intro,
+  section.distinction,
+  section.sg-formats,
+  section.recovery,
+  section.progression,
+  section.deliverables,
+  section.journey,
+  section.suitability,
+  section.compare,
   section.proposition,
   section.choose,
   section.guided {
     padding: 3.5rem 0;
+  }
+
+  .route-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 1.5rem;
+  }
+
+  .cta {
+    padding: 0.85rem 1.75rem;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hero-inner {
+    padding: 0 1.5rem;
+  }
+
+  .nav {
+    position: static;
+    height: 80px;
+    padding: 0 1.25rem;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .nav-brand {
+    font-size: 1.1rem;
+    letter-spacing: 0.14em;
+  }
+
+  .logo img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  footer {
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .split-grid,
+  .sg-format-grid,
+  .recovery-grid,
+  .deliverables-grid,
+  .journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-row {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-row > div {
+    padding: 0.6rem 1.25rem;
+  }
+
+  .compare-row > div:first-child {
+    border-right: none;
+  }
+
+  .compare-row > div:nth-child(2) {
+    border-right: none;
   }
 
   .choose-grid {
