@@ -628,9 +628,6 @@ h2 {
 
 .why-grid article {
   padding: 2rem 1.5rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 5px;
   transition: background 0.3s ease;
   display: grid;
   grid-template-rows: 46px auto 1fr;
@@ -638,6 +635,16 @@ h2 {
     "icon"
     "heading"
     "body";
+}
+
+/* Shared card surface: background + border + radius for the standard card pattern. */
+.why-grid article,
+.sg-components div,
+.recovery-grid div,
+.deliverables-grid div {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
 }
 
 .why-grid article > .icon {
@@ -1093,6 +1100,11 @@ section.compare { background: rgba(10, 10, 10, 0.85); }
 
 .split-card {
   padding: 2.25rem;
+}
+
+/* Shared card surface for strong-border cards */
+.choose-card,
+.split-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border-strong);
   border-radius: 5px;
@@ -1236,9 +1248,6 @@ section.compare { background: rgba(10, 10, 10, 0.85); }
 
 .recovery-grid div {
   padding: 1.75rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 5px;
 }
 
 .recovery-grid h4 {
@@ -1290,9 +1299,6 @@ section.compare { background: rgba(10, 10, 10, 0.85); }
 
 .deliverables-grid div {
   padding: 1.75rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 5px;
 }
 
 .deliverables-grid h4 {
@@ -1569,9 +1575,6 @@ section.guided {
 
 .choose-card {
   padding: 2.5rem 2.25rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border-strong);
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
@@ -1687,9 +1690,6 @@ section.guided {
 
 .sg-components div {
   padding: 1.5rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 5px;
 }
 
 .sg-components h4 {
